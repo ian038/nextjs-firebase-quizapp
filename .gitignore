@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+#firebase
+quizapp-c4663-firebase-adminsdk-qsnqg-d385509ca1.json
