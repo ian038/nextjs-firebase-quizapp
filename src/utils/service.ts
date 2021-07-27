@@ -12,3 +12,16 @@ export const addQuizApi = async(auth, values) => {
         throw error
     }
 }
+
+export const addAnswerApi = async(auth, quizId, values) => {
+    try {
+        const header = {
+            'Content-Type': 'application/json',
+            token: auth.token
+        }
+        const res = await axios.post(`/api/quiz/${quizId}/answer`, { questions: values, createdAt: new Date(), updatedAt: new Date() }, { headers: header })
+        return res
+    } catch(error) {
+        throw error
+    }
+}

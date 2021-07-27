@@ -25,3 +25,9 @@ export const getAllUsers = async() => {
     const users = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
     return users
 }
+
+export const getSingleQuiz = async quizId => {
+    const snapshot = await firebase.firestore().collection('quiz').doc(String(quizId)).get()
+    const quizData = snapshot.exists ? JSON.stringify(snapshot.data()) : null
+    return quizData
+}
