@@ -12,7 +12,6 @@ import {
     Text,
   } from '@chakra-ui/react';
 import { Field, Form, Formik } from 'formik';
-import { NextPageContext } from 'next';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import Navbar from '../../../common/Navbar';
@@ -42,7 +41,7 @@ const ShowQuiz = (quiz, onSubmit) => {
                     <Form>
                         {quiz.questions.map((singleQuiz, key) => (
                             <Field name={singleQuiz.questionId} key={key}>
-                                {({ field, _form }) => (    
+                                {({ field }) => (    
                                     <FormControl
                                     as="fieldset"
                                     isRequired={true}
@@ -103,7 +102,7 @@ const SingleQuiz = (props) => {
             console.log('Answer Id', answerId)
             router.push(`/quiz/${props.quizId}/answer/${answerId}`);
         } catch(error) {
-            console.log('error', error.response)
+            console.log('ANSWER SUBMIT ERROR', error)
         } finally {
             actions.setSubmitting(false)
         }
@@ -117,7 +116,7 @@ const SingleQuiz = (props) => {
     )
 }
 
-export async function getServerSideProps(context, NextPageContext) {
+export async function getServerSideProps(context) {
     const quizId = context.query.id
     const quizData = await getSingleQuiz(quizId)
     return { props: { quiz: quizData, quizId } }

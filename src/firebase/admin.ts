@@ -11,8 +11,6 @@ if (!admin.apps.length) {
   });
 }
 
-console.log('private key', process.env.FIREBASE_PRIVATE_KEY)
-
 const db = admin.firestore();
 const auth = admin.auth();
 
