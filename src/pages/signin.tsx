@@ -2,8 +2,8 @@ import React from 'react'
 import { Button, Center, Container, Heading, VStack } from '@chakra-ui/react';
 import { FcGoogle } from 'react-icons/fc'
 import Navbar from '../common/Navbar'
+import { useAuth } from '../firebase/auth';
 import { useRouter } from "next/router";
-import { useAuth } from '../firebase/auth'
 
 const signin = () => {
     const { auth, signinWithGoogle } = useAuth()
