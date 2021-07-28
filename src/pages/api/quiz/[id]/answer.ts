@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { auth } from '../../../../firebase/admin'
 import { addAnswer as addAnswerFb } from '../../../../utils/db'
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     switch (req.method) {
       case 'POST':
@@ -20,6 +21,7 @@ const addAnswer = async(req: NextApiRequest, res: NextApiResponse) => {
         const response = await addAnswerFb(data)
         return res.status(200).json({ status: true, data: { answerId: response.id } })
     } catch(error) {
+        console.log('Error', error)
         return res.status(500).json({ status: false, message: 'Something went wrong' })
     }
 }
