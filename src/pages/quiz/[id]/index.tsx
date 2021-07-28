@@ -97,8 +97,6 @@ const SingleQuiz = (props) => {
 
     const onSubmit = async (values, actions) => {
         try {
-            console.log('VALUES', values)
-            console.log('ACTIONS', actions)
             const res = await addAnswerApi(auth, props.quizId, values)
             const answerId = res.data.data.answerId
             console.log('Answer Id', answerId)

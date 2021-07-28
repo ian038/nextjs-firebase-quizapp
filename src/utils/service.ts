@@ -14,6 +14,9 @@ export const addQuizApi = async(auth, values) => {
 }
 
 export const addAnswerApi = async(auth, quizId, values) => {
+    console.log('VALUES', values)
+    console.log('QUIZ ID', quizId)
+    console.log('AUTH', auth.token)
     try {
         const header = {
             'Content-Type': 'application/json',
