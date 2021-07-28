@@ -22,6 +22,7 @@ export const addAnswerApi = async(auth, quizId, values) => {
         const res = await axios.post(`/api/quiz/${quizId}/answer`, { questions: values, createdAt: new Date(), updatedAt: new Date() }, { headers: header })
         return res
     } catch(error) {
+        console.log('Error 2', error)
         throw error
     }
 }
