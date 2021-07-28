@@ -102,7 +102,7 @@ const SingleQuiz = (props) => {
             const answerId = res.data.data.answerId
             router.push(`/quiz/${props.quizId}/answer/${answerId}`);
         } catch(error) {
-            console.log('error', error)
+            console.log('error', error.response)
         } finally {
             actions.setSubmitting(false)
         }
