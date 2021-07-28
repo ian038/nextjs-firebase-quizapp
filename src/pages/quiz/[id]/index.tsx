@@ -92,7 +92,7 @@ const SingleQuiz = (props) => {
         if(!auth && !loading) {
             router.push(`/signin?next=/quiz/${props.quizId}`)
         }
-    }, [auth, loading])
+    }, [auth, loading, props.quizId, router])
 
     const quiz = JSON.parse(props.quiz)
 
