@@ -3,11 +3,7 @@ import { Box, Divider, Flex, Heading, Link } from "@chakra-ui/layout";
 import { useRouter } from "next/router";
 import { useAuth } from '../firebase/auth'
 
-interface Props {
-
-}
-
-const Navbar: React.FC<Props> = () => {
+const Navbar: React.FC<{}> = () => {
     const { auth, signOut } = useAuth()
     const router = useRouter();
 
