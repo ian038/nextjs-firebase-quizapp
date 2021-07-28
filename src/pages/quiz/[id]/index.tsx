@@ -100,6 +100,7 @@ const SingleQuiz = (props) => {
         try {
             const res = await addAnswerApi(auth, props.quizId, values)
             const answerId = res.data.data.answerId
+            console.log('Answer Id', answerId)
             router.push(`/quiz/${props.quizId}/answer/${answerId}`);
         } catch(error) {
             console.log('error', error.response)
