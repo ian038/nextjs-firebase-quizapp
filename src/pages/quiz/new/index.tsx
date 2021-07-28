@@ -66,7 +66,7 @@ const optionData = [
         if(!auth && !loading) {
             router.push('/signin?next=/quiz/new')
         }
-      }, [auth, loading])
+      }, [auth, loading, router])
 
       const questionsData = {
           title: '',

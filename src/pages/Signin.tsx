@@ -2,12 +2,12 @@ import React from 'react'
 import { Button, Center, Container, Heading, VStack } from '@chakra-ui/react';
 import { FcGoogle } from 'react-icons/fc'
 import Navbar from '../common/Navbar'
+import { useRouter } from 'next/router';
 import { useAuth } from '../firebase/auth';
-import { useRouter } from "next/router";
 
-const signin = () => {
+const Signin = () => {
     const { auth, signinWithGoogle } = useAuth()
-    const router = useRouter();
+    const router = useRouter()
 
     if(auth) {
         router.push((router.query.next as string) || '/')
@@ -32,4 +32,4 @@ const signin = () => {
     )
 }
 
-export default signin 
+export default Signin 
