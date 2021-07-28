@@ -17,6 +17,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 const addAnswer = async(req: NextApiRequest, res: NextApiResponse) => {
     try {
         const user = await auth.verifyIdToken(req.headers.token as string)
+        console.log('User', user)
         const data = { ...req.body, quizId: req.query.id, userId: user.uid }
         const response = await addAnswerFb(data)
         return res.status(200).json({ status: true, data: { answerId: response.id } })

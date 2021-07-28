@@ -33,7 +33,9 @@ export const getSingleQuiz = async quizId => {
 }
 
 export const addAnswer = async data => {
+    console.log('DATA', data)
     const response = await firebase.firestore().collection('answers').add(data)
+    console.log('ADD ANSWER DB RES', response)
     return response
 }
 
