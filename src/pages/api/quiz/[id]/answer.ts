@@ -21,7 +21,6 @@ const addAnswer = async(req: NextApiRequest, res: NextApiResponse) => {
         const response = await addAnswerFb(data)
         return res.status(200).json({ status: true, data: { answerId: response.id } })
     } catch(error) {
-        console.log('Error', error.response)
         return res.status(500).json({ status: false, message: 'Something went wrong' })
     }
 }
