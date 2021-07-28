@@ -38,7 +38,7 @@ const ShowQuiz = (quiz, onSubmit) => {
             <Heading mt={4} size='lg'>Questions:</Heading>
             <Divider mt={4} mb={4} css={{ boxShadow: '1px 1px #888888' }} />
             <Formik initialValues={{}} onSubmit={onSubmit}>
-                {props => {
+                {props => (
                     <Form>
                         {quiz.questions.map((singleQuiz, key) => (
                             <Field name={singleQuiz.questionId} key={key}>
@@ -78,7 +78,7 @@ const ShowQuiz = (quiz, onSubmit) => {
                             </Button>
                         </Center>
                     </Form>
-                }}
+                )}
             </Formik>
         </Container>
     )
@@ -92,7 +92,7 @@ const SingleQuiz = (props) => {
         if(!auth && !loading) {
             router.push(`/signin?next=/quiz/${props.quizId}`)
         }
-    }, [auth, laoding])
+    }, [auth, loading])
 
     const quiz = JSON.parse(props.quiz)
 
